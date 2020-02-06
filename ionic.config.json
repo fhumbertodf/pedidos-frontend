@@ -1,0 +1,7 @@
+{
+  "name": "pedidos-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
