@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,20 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(public navCtrl: NavController, public menu: MenuController) { }
+
+  ionViewWillEnter() {
+    this.menu.enable(false);
+    console.log('menu.swipeGesture(false)');
+  }
+
+  ionViewDidLeave() {
+    this.menu.enable(true);
+    console.log('menu.swipeGesture(true)');
+  }
+
+  login() {
+    this.navCtrl.navigateRoot('categorias');
+  }
 
 }
