@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriaService } from '../services/categoria.service';
+import { CategoriaDTO } from '../models/categoria.dto';
 
 @Component({
   selector: 'app-categorias',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriasPage implements OnInit {
 
-  constructor() { }
+  items: CategoriaDTO[];
+
+  constructor( public categoriaService: CategoriaService) { }
 
   ngOnInit() {
   }
 
+  ionViewDidEnter() {
+    this.categoriaService.findAll()
+      .subscribe(response => {
+        console.log(response);
+      },
+      error => { console.log(error); });
+  }
 }

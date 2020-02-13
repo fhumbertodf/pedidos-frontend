@@ -12,12 +12,10 @@ export class HomePage {
 
   ionViewWillEnter() {
     this.menu.enable(false);
-    console.log('menu.swipeGesture(false)');
   }
 
   ionViewDidLeave() {
     this.menu.enable(true);
-    console.log('menu.swipeGesture(true)');
   }
 
   login() {
